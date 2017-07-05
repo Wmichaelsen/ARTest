@@ -20,33 +20,19 @@ class ViewController: UIViewController, ARSCNViewDelegate, AppManagerDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecog:)))
-//        view.addGestureRecognizer(tapGesture)
+        let rc = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+        view.addGestureRecognizer(rc)
         
         /* Start checking user location */
         AppManager.sharedInstance.startUpdatingLocation()
         AppManager.sharedInstance.delegate = self
     }
-//
-//    @objc
-//    func handleTap(gestureRecog: UITapGestureRecognizer) {
-//        guard let currentFrame = sceneView.session.currentFrame else {
-//            return
-//        }
-//
-//        let imagePlane = SCNPlane(width: sceneView.bounds.width / 6000, height: sceneView.bounds.height / 6000)
-//        imagePlane.firstMaterial?.diffuse.contents = sceneView.snapshot()
-//        imagePlane.firstMaterial?.lightingModel = .constant
-//
-//        let planeNode = SCNNode(geometry: imagePlane)
-//        sceneView.scene.rootNode.addChildNode(planeNode)
-//
-//        var translation = matrix_identity_float4x4
-//        translation.columns.3.z = -1.5
-//        translation.columns.3.x = -1.5
-//        planeNode.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
-//    }
+    
+    @objc
+    func handleTap(recog: UITapGestureRecognizer) {
+        
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -90,7 +76,25 @@ class ViewController: UIViewController, ARSCNViewDelegate, AppManagerDelegate {
     }
     
     //MARK: - AppManagerDelegate
-    func addArScene(scene: SCNScene) {
-        sceneView.scene = scene
+    
+    @objc func addArScene(scene: SCNScene) {
+        let sceneCopy = scene
+
+        guard let currentFrame = sceneView.session.currentFrame else {
+            return
+        }
+                
+        let imagePlane = SCNPlane(width: 0.20, height: 0.28)
+        imagePlane.firstMaterial?.diffuse.contents = UIImage(named: "sign1")
+        imagePlane.firstMaterial?.lightingModel = .constant
+        
+        let planeNode = SCNNode(geometry: imagePlane)
+        sceneCopy.rootNode.addChildNode(planeNode)
+        
+        var translation = matrix_identity_float4x4
+        translation.columns.3.z = -0.5
+        planeNode.simdTransform = matrix_multiply(currentFrame.camera.transform, translation)
+        
+        sceneView.scene = sceneCopy
     }
 }

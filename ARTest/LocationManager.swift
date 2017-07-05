@@ -76,7 +76,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         self.currentLocatin = newLoc
         
         //if !firstLoad {
-        if distance > 1 {
+        if distance > 10 {
             delegate?.locationChanged(self.currentLocatin.coordinate)
         }
         //    self.firstLoad = false

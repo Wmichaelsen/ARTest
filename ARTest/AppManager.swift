@@ -54,7 +54,8 @@ class AppManager: LocationManagerDelegate {
     //MARK: - AR Methods
     
     func displayAR() {
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        
+        let scene = SCNScene(/*named: "art.scnassets/ship.scn"*/)
         delegate?.addArScene(scene: scene)
     }
     

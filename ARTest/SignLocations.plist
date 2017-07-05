@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   SignLocations.plist
-   ARTest
-
-   Created by Wilhelm Michaelsen on 7/5/17.
-   Copyright (c) 2017 Wilhelm Michaelsen. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+    <array>
+        <dict>
+            <key>title</key>
+            <string>Boldsie</string>
+            <key>description</key>
+            <string>Welcome to Boldsie!</string>
+            <key>latitude</key>
+            <real>56.04809</real>
+            <key>longitude</key>
+            <real>12.691428</real>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Dunkers</string>
+            <key>description</key>
+            <string>Welcome to Dunkers!</string>
+            <key>latitude</key>
+            <real>56.047899</real>
+            <key>longitude</key>
+            <real>12.689545</real>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Knutan</string>
+            <key>description</key>
+            <string>Welcome to Knutan!</string>
+            <key>latitude</key>
+            <real>56.044477</real>
+            <key>longitude</key>
+            <real>12.694576</real>
+        </dict>
+    </array>
 </plist>

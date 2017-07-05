@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260E8DEF1F0CDEDB00A6D337 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260E8DEE1F0CDEDB00A6D337 /* MapViewController.swift */; };
 		265608AA1F0BAA1B000BBD92 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265608A91F0BAA1B000BBD92 /* CoreLocation.framework */; };
 		265608CE1F0BAC58000BBD92 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265608CD1F0BAC58000BBD92 /* LocationManager.swift */; };
 		269E3C351F0BAD610071043A /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269E3C341F0BAD610071043A /* AppManager.swift */; };
+		26B04FE71F0CE3EB002C668D /* SignLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B04FE61F0CE3EB002C668D /* SignLocation.swift */; };
+		26B04FE91F0CE442002C668D /* SignLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26B04FE81F0CE442002C668D /* SignLocations.plist */; };
 		26B798B31F0A959000F1D283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B798B21F0A959000F1D283 /* AppDelegate.swift */; };
 		26B798B51F0A959000F1D283 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 26B798B41F0A959000F1D283 /* art.scnassets */; };
 		26B798B71F0A959000F1D283 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B798B61F0A959000F1D283 /* ViewController.swift */; };
@@ -43,9 +46,12 @@
 
 /* Begin PBXFileReference section */
 		04DB1F1C1796A1613D4F3CEB /* Pods_ARTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		260E8DEE1F0CDEDB00A6D337 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		265608A91F0BAA1B000BBD92 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		265608CD1F0BAC58000BBD92 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		269E3C341F0BAD610071043A /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		26B04FE61F0CE3EB002C668D /* SignLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignLocation.swift; sourceTree = "<group>"; };
+		26B04FE81F0CE442002C668D /* SignLocations.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SignLocations.plist; sourceTree = "<group>"; };
 		26B798AF1F0A959000F1D283 /* ARTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B798B21F0A959000F1D283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26B798B41F0A959000F1D283 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 				269E3C341F0BAD610071043A /* AppManager.swift */,
 				265608CD1F0BAC58000BBD92 /* LocationManager.swift */,
 				26B798B81F0A959000F1D283 /* Main.storyboard */,
+				260E8DEE1F0CDEDB00A6D337 /* MapViewController.swift */,
+				26B04FE61F0CE3EB002C668D /* SignLocation.swift */,
+				26B04FE81F0CE442002C668D /* SignLocations.plist */,
 				26CF6C911F0BB2B00019DDC0 /* locations.plist */,
 				26B798BB1F0A959000F1D283 /* Assets.xcassets */,
 				26B798BD1F0A959000F1D283 /* LaunchScreen.storyboard */,
@@ -296,6 +305,7 @@
 			files = (
 				26B798B51F0A959000F1D283 /* art.scnassets in Resources */,
 				26B798BF1F0A959000F1D283 /* LaunchScreen.storyboard in Resources */,
+				26B04FE91F0CE442002C668D /* SignLocations.plist in Resources */,
 				26CF6C921F0BB2B00019DDC0 /* locations.plist in Resources */,
 				26B798BC1F0A959000F1D283 /* Assets.xcassets in Resources */,
 				26B798BA1F0A959000F1D283 /* Main.storyboard in Resources */,
@@ -464,7 +474,9 @@
 				26B798B71F0A959000F1D283 /* ViewController.swift in Sources */,
 				26B798B31F0A959000F1D283 /* AppDelegate.swift in Sources */,
 				265608CE1F0BAC58000BBD92 /* LocationManager.swift in Sources */,
+				260E8DEF1F0CDEDB00A6D337 /* MapViewController.swift in Sources */,
 				269E3C351F0BAD610071043A /* AppManager.swift in Sources */,
+				26B04FE71F0CE3EB002C668D /* SignLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

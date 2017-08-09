@@ -9,12 +9,13 @@
 import Foundation
 import CoreLocation
 import ARKit
+import AVFoundation
 
 protocol AppManagerDelegate {
-    func addArScene(scene: SCNScene)
+    func addArScene(scene: SCNScene, withText text: String)
 }
 
-class AppManager: LocationManagerDelegate {
+class AppManager: LocationManagerDelegate, AVSessionDelegate {
     
     //MARK: - Properties
     
@@ -30,33 +31,42 @@ class AppManager: LocationManagerDelegate {
     var currentUserLocation: [Double]?
     var delegate: AppManagerDelegate?
     
-    
     /* Location of signs */
-    var signLocations: NSDictionary?
+    var signLocations: [SignLocation]
+    
+    var previewLayer: CALayer {
+        get {
+            return AVSession.sharedInstance.previewLayer
+        }
+        set {
+            
+        }
+    }
+    
+    var currentFrame: CGImage?
     
     //MARK: - Init
     init() {
-        LocationManager.sharedInstance.delegate = self
+        /* Read and store locations of poetry signs */
+        signLocations = SignLocation.getPlaces()
         
-        /* Read and store locations of poet signs */
-        if let path = Bundle.main.path(forResource: "locations", ofType: "plist") {
-            signLocations = NSDictionary(contentsOfFile: path)
-        }
+        LocationManager.sharedInstance.delegate = self
+        AVSession.sharedInstance.delegate = self
     }
     
     //MARK: - Sign Methods
     
-    func enteredSignArea() {
+    func enteredSign(withText text: String) {
         print("\n\nENTERED REGION\n\n")
-        displayAR()
+        displayAR(withText: text)
     }
     
     //MARK: - AR Methods
     
-    func displayAR() {
+    func displayAR(withText text: String) {
         
         let scene = SCNScene(/*named: "art.scnassets/ship.scn"*/)
-        delegate?.addArScene(scene: scene)
+        delegate?.addArScene(scene: scene, withText: text)
     }
     
     
@@ -70,18 +80,44 @@ class AppManager: LocationManagerDelegate {
         LocationManager.sharedInstance.stopUpdating()
     }
     
+    //MARK: - AVSession Methods
+    func startCameraFeed() {
+        AVSession.sharedInstance.start()
+    }
+    
+    func takePhoto() {
+        AVSession.sharedInstance.takePicture()
+    }
+    
+    //MARK: - CoreML Methods
+    func analyzeImage(image: UIImage, completion: @escaping (_ string: String?) -> Void) {
+        let ml = CoreML(image: image)
+        ml.detectPic(completion: { string in
+            completion(string)
+        })
+    }
+    
+    //MARK: - AVSessionDelegate
+    func photoTaken(photo: CGImage?) {
+        currentFrame = photo
+    }
+    
     //MARK: - LocationManagerDelegate
     
     func locationChanged(_ coordinate: CLLocationCoordinate2D?) {
         if coordinate != nil {
             
             /* Go through each sign location and check if user is within 5 meters */
-            for location in (signLocations?.value(forKey: "locs") as? [[Double]])! {
-                let loc1 = CLLocation(latitude: location[0], longitude: location[1])
+            for signLocation in signLocations {
+                let loc1 = CLLocation(latitude: signLocation.coordinate.latitude, longitude: signLocation.coordinate.longitude)
                 let loc2 = CLLocation(latitude: coordinate!.latitude, longitude: coordinate!.longitude)
                 
                 if loc1.distance(from: loc2) < 30 {
-                    self.enteredSignArea()
+                    if signLocation.text != nil {
+                        self.enteredSign(withText: signLocation.text!)
+                    } else {
+                        self.enteredSign(withText: "")
+                    }
                 }
             }
             
@@ -94,4 +130,5 @@ class AppManager: LocationManagerDelegate {
             print("coordinate is nil (UserManager.swift)")
         }
     }
+    
 }

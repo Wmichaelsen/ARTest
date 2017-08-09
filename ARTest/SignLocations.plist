@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <array>
-        <dict>
-            <key>title</key>
-            <string>Boldsie</string>
-            <key>description</key>
-            <string>Welcome to Boldsie!</string>
-            <key>latitude</key>
-            <real>56.04809</real>
-            <key>longitude</key>
-            <real>12.691428</real>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>Dunkers</string>
-            <key>description</key>
-            <string>Welcome to Dunkers!</string>
-            <key>latitude</key>
-            <real>56.047899</real>
-            <key>longitude</key>
-            <real>12.689545</real>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>Knutan</string>
-            <key>description</key>
-            <string>Welcome to Knutan!</string>
-            <key>latitude</key>
-            <real>56.044477</real>
-            <key>longitude</key>
-            <real>12.694576</real>
-        </dict>
-    </array>
+<array>
+	<dict>
+		<key>text</key>
+		<string>Poesi poesi poesi poesi...</string>
+		<key>title</key>
+		<string>Boldsie</string>
+		<key>description</key>
+		<string>Welcome to Boldsie!</string>
+		<key>latitude</key>
+		<real>56.04809</real>
+		<key>longitude</key>
+		<real>12.691428</real>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>Texteefcretrfrvet</string>
+		<key>title</key>
+		<string>Dunkers</string>
+		<key>description</key>
+		<string>Welcome to Dunkers!</string>
+		<key>latitude</key>
+		<real>56.047899</real>
+		<key>longitude</key>
+		<real>12.689545</real>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>efji feok gejokokf ed fkoekf</string>
+		<key>title</key>
+		<string>Knutan</string>
+		<key>description</key>
+		<string>Welcome to Knutan!</string>
+		<key>latitude</key>
+		<real>56.044477</real>
+		<key>longitude</key>
+		<real>12.694576</real>
+	</dict>
+</array>
 </plist>

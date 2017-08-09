@@ -66,6 +66,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let lastIndex = locations.endIndex - 1
         let newLoc: CLLocation = locations[lastIndex]
         
